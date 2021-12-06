@@ -1,0 +1,22 @@
+{
+  "name": "residencial",
+  "version": "1.0.0",
+  "description": "proyecto",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lupiitha10/Residencial.git"
+  },
+  "author": "Lupita Torres",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lupiitha10/Residencial/issues"
+  },
+  "homepage": "https://github.com/Lupiitha10/Residencial#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
