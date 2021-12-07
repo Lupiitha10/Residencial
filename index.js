@@ -11,7 +11,11 @@ const Usuarios = require('./src/routes/usuarios.router');
 app.use('/Usuarios',Usuarios);
 
 const login = require('./src/routes/login.router');
-app.use('/Login',login)
+app.use('/Login',login);
+
+const Documentos = require('./src/routes/documentos.router');
+app.use('/Documentos', Documentos);
+
 app.listen(5000,()=>{
     console.log('Corriendo');
-})
+});
