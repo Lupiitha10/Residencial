@@ -22,6 +22,9 @@ app.use('/Visitantes', Visitantes);
 const Direcciones = require('./src/routes/direcciones.router');
 app.use('/Direcciones', Direcciones);
 
+const Residentes = require('./src/routes/residentes.router');
+app.use('/Residentes', Residentes);
+
 app.listen(5000,()=>{
     console.log('Corriendo');
 });
