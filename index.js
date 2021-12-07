@@ -16,6 +16,9 @@ app.use('/Login',login);
 const Documentos = require('./src/routes/documentos.router');
 app.use('/Documentos', Documentos);
 
+const Visitantes = require('./src/routes/visitantes.router');
+app.use('/Visitantes', Visitantes);
+
 app.listen(5000,()=>{
     console.log('Corriendo');
 });
