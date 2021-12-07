@@ -9,7 +9,7 @@ exports.create = function(req,resp){
         Usuarios.create(new_user,function(err,user){
             if (err)
             resp.send(err);
-            resp.json({error:false,message:"El empleado se agrego con exito!",data:user});
+            resp.json({error:false,message:"El Usuario se Ha Creado",data:user});
         })
     }
 

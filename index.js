@@ -10,6 +10,8 @@ app.get('/', (req, res) => {
 const Usuarios = require('./src/routes/usuarios.router');
 app.use('/Usuarios',Usuarios);
 
+const login = require('./src/routes/login.router');
+app.use('/Login',login)
 app.listen(5000,()=>{
     console.log('Corriendo');
 })
