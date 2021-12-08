@@ -19,10 +19,10 @@ Usuarios.create = async function (newUser, result) {
         if (err) {
             result(err, null)
         } else {
-            // TIPOS 1 = RESIDENTE, 2 ADMINISRTRADOR
+            // TIPOS 1 = RESIDENTE, 2= ADMINISRTRADOR
             const id_usr = resp.insertId;
             let query;
-            if (newUser.tipo == 1) {
+            if (newUser.TIPO == 1) {
                 query = "INSERT INTO RESIDENTES(ID_USR,NOMBRE,PATERNO,MATERNO)VALUE(?,?,?,?)";
             } else {
                 query = "INSERT INTO ADMINISTRADORES (ID_USR,NOMBRE,PATERNO,MATERNO)VALUE(?,?,?,?)";

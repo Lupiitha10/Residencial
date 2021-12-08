@@ -2,13 +2,13 @@
 const sql = require('../../database/bdconf');
 const { response } = require('express');
 
-var Residentes = function(resident){
-    this.NOMBRE = resident.NOMBRE
-    this.PATERNO = resident.PATERNO
-    this.MATERNO = resident.MATERNO
+var ADMINISRTRADOR = function(admin){
+    this.NOMBRE = admin.NOMBRE
+    this.PATERNO = admin.PATERNO
+    this.MATERNO = admin.MATERNO
 }
 
-Residentes.findAll = function(result) {
+ADMINISRTRADOR.findAll = function(result) {
     sql.query("SELECT * FROM RESIDENTES", function(err, res) {
         if(err){
             result(err, null)
@@ -17,7 +17,7 @@ Residentes.findAll = function(result) {
         }
     });
 };
-Residentes.findOne = async function(id, result){
+ADMINISRTRADOR.findOne = async function(id, result){
     sql.query("SELECT * FROM RESIDENTES WHERE ID = ?", id, function(err, res){
         if(err){
             result(err, null)
@@ -26,8 +26,8 @@ Residentes.findOne = async function(id, result){
         }
     });
 };
-Residentes.update = async function(id, resident, result){
-    sql.query("UPDATE RESIDENTES SET , NOMBRE = ?, PATERNO = ?, MATERNO = ? WHERE ID = ?", [ resident.NOMBRE, resident.PATERNO, resident.MATERNO ,id], function(err, res){
+ADMINISRTRADOR.update = async function(id, admin, result){
+    sql.query("UPDATE RESIDENTES SET , NOMBRE = ?, PATERNO = ?, MATERNO = ? WHERE ID = ?", [ admin.NOMBRE, admin.PATERNO, admin.MATERNO ,id], function(err, res){
         if(err){
             result(err, null)
         }else{
@@ -35,8 +35,8 @@ Residentes.update = async function(id, resident, result){
         }
     });
 };
-Residentes.delete = async function(id, result){
-    sql.query("DELETE R,U FROM RESIDENTES R INNER JOIN USUARIOS U ON U.ID = R.ID_USR WHERE R.ID = ?", [id], function(err, res){
+ADMINISRTRADOR.delete = async function(id, result){
+    sql.query("DELETE R,U FROM ADMINISTRADORES R INNER JOIN USUARIOS U ON U.ID = R.ID_USR WHERE R.ID = ?", [id], function(err, res){
         if(err){
             result(err, null)
         }else{
@@ -44,4 +44,4 @@ Residentes.delete = async function(id, result){
         }
     });
 };
-module.exports = Residentes
+module.exports = ADMINISRTRADOR

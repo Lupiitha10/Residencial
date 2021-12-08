@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const ResidentController = require('../controllers/residentes.controller');
+const ResidentController = require('../controllers/administradores.controller');
 
 router.get('/', ResidentController.findAll);
 

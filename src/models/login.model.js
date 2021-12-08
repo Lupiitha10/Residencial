@@ -27,9 +27,17 @@ Login.find = function (acceso, response) {
             response(er, null)
         }
     })
-
-
 }
 
+Login.update = function(datos,id,response){
+    datos.PASS = await bcrypt.hash(datos.PASS, 10);
+    sql.query("UPDATE USUARIOS SET USUARIO = ? AND PASS = ? WHERE ID = ?",[datos.USUARIO,datos.PASS,id],(err,res)=>{
+        if(err){
+            response(err,null)
+        }else{
+            response(null,res)
+        }
+    })
+}
 
 module.exports = Login;

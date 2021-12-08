@@ -1,5 +1,5 @@
 'use strict';
-const Residentes = require('../models/residentes.model');
+const Residentes = require('../models/administradores.model');
 
 exports.findAll = function(req, res){
     Residentes.findAll(function(err, result){
