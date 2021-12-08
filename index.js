@@ -25,6 +25,6 @@ app.use('/Direcciones', Direcciones);
 const Residentes = require('./src/routes/residentes.router');
 app.use('/Residentes', Residentes);
 
-app.listen(3000,()=>{
+app.listen(process.env.PORT || 3000,()=>{
     console.log('Corriendo');
 });
