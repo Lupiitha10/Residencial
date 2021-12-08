@@ -6,7 +6,7 @@ app.use(bodyParser.json())
 app.get('/', (req, res) => {
     res.send("Hello World");
   });
-
+/*
 const Usuarios = require('./src/routes/usuarios.router');
 app.use('/Usuarios',Usuarios);
 
@@ -24,7 +24,7 @@ app.use('/Direcciones', Direcciones);
 
 const Residentes = require('./src/routes/residentes.router');
 app.use('/Residentes', Residentes);
-
+*/
 app.listen(5000,()=>{
     console.log('Corriendo');
 });
