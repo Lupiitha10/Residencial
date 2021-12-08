@@ -29,7 +29,7 @@ Login.find = function (acceso, response) {
     })
 }
 
-Login.update = function(datos,id,response){
+Login.update = async function(datos,id,response){
     datos.PASS = await bcrypt.hash(datos.PASS, 10);
     sql.query("UPDATE USUARIOS SET USUARIO = ? AND PASS = ? WHERE ID = ?",[datos.USUARIO,datos.PASS,id],(err,res)=>{
         if(err){
