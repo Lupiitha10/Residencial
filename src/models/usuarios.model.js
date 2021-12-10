@@ -39,7 +39,7 @@ Usuarios.create = async function (newUser, result) {
     })
 }
 
-//Consulta Usuarios por id
+//Consulta Usuarios por numbre usuario
 Usuarios.findOne = function(USR,resp){
     sql.query("SELECT * FROM USUARIOS WHERE USUARIO ?",USR,(err,res)=>{
         if(!err){

@@ -42,7 +42,7 @@ Residentes.update = async function(id, resident, result){
 };
 
 
-//Eliminar Residente
+//Eliminar Residente y Usuario
 Residentes.delete = async function(id, result){
     sql.query("DELETE R,U FROM RESIDENTES R INNER JOIN USUARIOS U ON U.ID = R.ID_USR WHERE R.ID = ?", [id], function(err, res){
         if(err){

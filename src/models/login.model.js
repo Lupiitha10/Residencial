@@ -8,7 +8,7 @@ var Login = function (Login) {
     this.PASS = Login.PASS
 }
 
-//Consulta
+//Consulta login comparando hashes 
 Login.find = function (acceso, response) {
     sql.query("SELECT * FROM USUARIOS WHERE USUARIO = ?", acceso.USUARIO, async (er, r) => {
         if (!er) {
@@ -31,7 +31,7 @@ Login.find = function (acceso, response) {
     })
 }
 
-//Modificar
+//Modificar usuario o contraseña de un usuario
 Login.update = async function(datos,id,response){
     datos.PASS = await bcrypt.hash(datos.PASS, 10);
     sql.query("UPDATE USUARIOS SET USUARIO = ? AND PASS = ? WHERE ID = ?",[datos.USUARIO,datos.PASS,id],(err,res)=>{

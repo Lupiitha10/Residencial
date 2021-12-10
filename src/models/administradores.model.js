@@ -41,7 +41,7 @@ ADMINISRTRADOR.update = async function(id, admin, result){
     });
 };
 
-//Eliminar Adminsitrador
+//Eliminar Adminsitrador y Usuario
 ADMINISRTRADOR.delete = async function(id, result){
     sql.query("DELETE R,U FROM ADMINISTRADORES R INNER JOIN USUARIOS U ON U.ID = R.ID_USR WHERE R.ID = ?", [id], function(err, res){
         if(err){
