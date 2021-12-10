@@ -1,6 +1,7 @@
 'use strict';
 const Visitantes = require('../models/visitantes.model');
 
+//Alta de visitantes
 exports.create = function(req, res){
     const new_visit = new Visitantes(req.body);
 
@@ -16,6 +17,8 @@ exports.create = function(req, res){
         })
     }
 }
+
+//Consultar todos los visitantes
 exports.findAll = function(req, res){
     Visitantes.findAll(function(err, result){
         if(err){
@@ -25,6 +28,8 @@ exports.findAll = function(req, res){
         }
     })
 }
+
+//Consultar Visitante por id
 exports.findOne = function(req, res){
     Visitantes.findOne(req.params.id, function(err, result){
         if(err){
@@ -34,6 +39,8 @@ exports.findOne = function(req, res){
         }
     })
 }
+
+//Modificar Visitante
 exports.update = function(req, res){
     if(req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.status(400).send({ error:true, message: 'Please provide all required field' });
@@ -47,6 +54,8 @@ exports.update = function(req, res){
         })
     }
 }
+
+//Eliminar Visitante
 exports.delete = function(req, res){
     Visitantes.delete(req.params.id, function(err, result){
         if(err){

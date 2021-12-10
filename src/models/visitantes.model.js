@@ -8,6 +8,7 @@ var Visitantes = function(visita){
     this.MATERNO = visita.MATERNO
 }
 
+//Alta de visitantes
 Visitantes.create = async function(Visit, result){
     sql.query("INSERT INTO VISITANTES(NOMBRE, PATERNO, MATERNO)VALUE(?,?,?)", [Visit.NOMBRE, Visit.PATERNO, Visit.MATERNO], function(err, res){
         if(err){
@@ -17,6 +18,8 @@ Visitantes.create = async function(Visit, result){
         }
     });
 };
+
+//Consultar todos los visitantes
 Visitantes.findAll = function(result) {
         sql.query("SELECT * FROM VISITANTES", function(err, res) {
         if(err){
@@ -26,6 +29,8 @@ Visitantes.findAll = function(result) {
         }
     });
 };
+
+//Consultar Visitante por id
 Visitantes.findOne = async function(id, result){
     sql.query("SELECT * FROM VISITANTES WHERE ID = ?", id, function(err, res){
         if(err){
@@ -35,6 +40,8 @@ Visitantes.findOne = async function(id, result){
         }
     });
 };
+
+//Modificar Visitante
 Visitantes.update = async function(id, Visit, result){
     sql.query("UPDATE VISITANTES SET NOMBRE = ?, PATERNO = ?, MATERNO = ? WHERE ID = ?", [Visit.NOMBRE, Visit.PATERNO, Visit.MATERNO ,id], function(err, res){
         if(err){
@@ -44,6 +51,8 @@ Visitantes.update = async function(id, Visit, result){
         }
     });
 };
+
+//Eliminar Visitante
 Visitantes.delete = async function(id, result){
     sql.query("DELETE FROM VISITANTES WHERE ID = ?", [id], function(err, res){
         if(err){

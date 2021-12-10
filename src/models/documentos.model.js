@@ -6,6 +6,7 @@ var Documentos = function(documento){
     this.DOCUMENTO = documento.DOCUMENTO
 }
 
+//Alta de Documentos
 Documentos.create = async function(Doc, result){
     sql.query("INSERT INTO DOCUMENTOS(DOCUMENTO)VALUE(?)", [Doc.DOCUMENTO], function(err, res){
         if(err){
@@ -15,6 +16,8 @@ Documentos.create = async function(Doc, result){
         }
     });
 };
+
+//Consulta todos los Documentos
 Documentos.findAll = function(result) {
         sql.query("SELECT * FROM DOCUMENTOS", function(err, res) {
         if(err){
@@ -24,6 +27,8 @@ Documentos.findAll = function(result) {
         }
     });
 };
+
+//Consulta un Documento por id
 Documentos.findOne = async function(id, result){
     sql.query("SELECT * FROM DOCUMENTOS WHERE ID = ?", id, function(err, res){
         if(err){
@@ -33,6 +38,8 @@ Documentos.findOne = async function(id, result){
         }
     });
 };
+
+//Modificar Documento
 Documentos.update = async function(id, Doc, result){
     sql.query("UPDATE DOCUMENTOS SET DOCUMENTO = ? WHERE ID = ?", [Doc.DOCUMENTO, id], function(err, res){
         if(err){
@@ -42,6 +49,8 @@ Documentos.update = async function(id, Doc, result){
         }
     });
 };
+
+//Eliminar Documento
 Documentos.delete = async function(id, result){
     sql.query("DELETE FROM DOCUMENTOS WHERE ID = ?", [id], function(err, res){
         if(err){

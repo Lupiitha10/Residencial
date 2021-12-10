@@ -8,6 +8,7 @@ var Direcciones = function(direcciones){
     this.NO_EXT = direcciones.NO_EXT
 }
 
+//Alta de Direccion
 Direcciones.create = async function(Dir, result){
     sql.query("INSERT INTO DIRECCIONES(CALLE, NO_INT, NO_EXT)VALUE(?,?,?)", [Dir.CALLE, Dir.NO_INT, Dir.NO_EXT], function(err, res){
         if(err){
@@ -17,6 +18,8 @@ Direcciones.create = async function(Dir, result){
         }
     });
 };
+
+//Consulta todas las Direcciones
 Direcciones.findAll = function(result) {
         sql.query("SELECT * FROM DIRECCIONES", function(err, res) {
         if(err){
@@ -26,6 +29,8 @@ Direcciones.findAll = function(result) {
         }
     });
 };
+
+//Consulta Direccion por id
 Direcciones.findOne = async function(id, result){
     sql.query("SELECT * FROM DIRECCIONES WHERE ID = ?", id, function(err, res){
         if(err){
@@ -35,6 +40,8 @@ Direcciones.findOne = async function(id, result){
         }
     });
 };
+
+//Modifica Direccion
 Direcciones.update = async function(id, Dir, result){
     sql.query("UPDATE DIRECCIONES SET CALLE = ?, NO_INT = ?, NO_EXT = ? WHERE ID = ?", [Dir.CALLE, Dir.NO_INT, Dir.NO_EXT, id], function(err, res){
         if(err){
@@ -44,6 +51,8 @@ Direcciones.update = async function(id, Dir, result){
         }
     });
 };
+
+//Eliminar Direccion
 Direcciones.delete = async function(id, result){
     sql.query("DELETE FROM DIRECCIONES WHERE ID = ?", [id], function(err, res){
         if(err){

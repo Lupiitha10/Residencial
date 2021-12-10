@@ -1,6 +1,7 @@
 "use strict"
 const Usuarios = require('../models/usuarios.model');
 
+//Alta de Usuarios
 exports.create = function(req,resp){
     const  new_user = new Usuarios(req.body);
     if(req.body.constructor === Object && Object.keys(req.body).length === 0){

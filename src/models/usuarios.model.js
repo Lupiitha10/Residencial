@@ -13,6 +13,7 @@ var Usuarios = function (usuarios) {
     this.TIPO = usuarios.TIPO
 };
 
+//Alta de Usuarios
 Usuarios.create = async function (newUser, result) {
     newUser.PASS = await bcrypt.hash(newUser.PASS, 10);
     sql.query("INSERT INTO USUARIOS(USUARIO,PASS,TIPO)VALUE(?,?,?)", [newUser.USUARIO, newUser.PASS, newUser.TIPO], function (err, resp) {
@@ -38,6 +39,7 @@ Usuarios.create = async function (newUser, result) {
     })
 }
 
+//Consulta Usuarios por id
 Usuarios.findOne = function(USR,resp){
     sql.query("SELECT * FROM USUARIOS WHERE USUARIO ?",USR,(err,res)=>{
         if(!err){
